@@ -47,6 +47,24 @@ You can manually test features by following these actions:
 
 ---
 
+## Sidebar 
+The left sidebar helps organize and navigate your notes more efficiently:
+
+- 🔍 **Search Bar**: Type and press `Enter` to highlight matching tasks across all notes.
+- **Tasks Section**:
+  - ⏳ Upcoming — placeholder for future deadline-based filters
+  - 🕑 Today — placeholder for daily task filters
+  - 🗓️ Calendar — placeholder for calendar integration
+- **Category Section**:
+  - Personal & Work tags for organizing types of notes
+- **Footer Menu**:
+  - Settings (planned)
+  - Log Out (UI placeholder only)
+
+> ⚠️ Note: The sidebar sections are mostly static now but are designed for easy extension.
+
+---
+
 ## 🧱 Project Structure
 
 ```
@@ -80,7 +98,29 @@ sticky-wall/
 
 ---
 
-🧠 *"Stick your thoughts where they belong — on your Sticky Wall!"*
+## 🔮 Future Scope
+
+The Sticky Wall app is built with scalability in mind. Some planned and potential enhancements include:
+
+📆 Calendar Integration: Link notes to dates and deadlines
+
+⏰ Reminders & Notifications: Alert users for upcoming tasks
+
+🧠 Drag-and-Drop Notes: Rearranging sticky notes dynamically
+
+🔐 User Authentication: Enable login and secure multi-user access
+
+☁️ Cloud Sync: Save notes to a backend or cloud storage
+
+📱 Mobile App Version: Using React Native or PWA for phones
+
+🔍 Advanced Search Filters: Search by category, date, or tag
+
+🧾 Rich Text Tasks: Add descriptions, subtasks, or attachments
+
+---
+
+###  *"Stick your thoughts where they belong — on your Sticky Wall!"*
 
 ---
 
