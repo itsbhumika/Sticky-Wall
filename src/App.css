@@ -1,0 +1,453 @@
+/* Reset and layout */
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url('/public/paper6-01.jpg');
+  background-repeat: repeat;
+  background-size: auto;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(1px);
+}
+
+body.dark-mode {
+  background-image: url('/public/dark-bg.jpg');
+  background-repeat: repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app.dark {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.app.dark .sidebar {
+  background-color: #2c2c2c;
+}
+
+.sidebar h2,
+.sidebar-section h3,
+.sidebar li {
+  color: #333;
+}
+
+.app.dark .sidebar h2,
+.app.dark .sidebar-section h3,
+.app.dark .sidebar li {
+  color: #f1f1f1;
+}
+
+.sidebar li.active {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.sidebar input[type="text"],
+.search-box {
+  width: 90%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 8px;
+}
+
+.app.dark .sidebar input[type="text"],
+.app.dark .search-box {
+  background-color: #444;
+  color: #fff;
+  border: 1px solid #777;
+}
+
+.sidebar button {
+  padding: 8px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.sidebar button:hover {
+  background-color: #0056b3;
+}
+
+.app.dark .sidebar button {
+  background-color: #3399ff;
+}
+
+.app.dark .sidebar button:hover {
+  background-color: #0066cc;
+}
+
+/* Main wall */
+.main-wall {
+  padding: 2rem;
+  flex-grow: 1;
+  overflow-y: auto;
+  transition: background 0.3s ease;
+  position: relative;
+}
+
+.main-wall h1 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #222;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .main-wall h1 {
+  color: #f1f1f1;
+}
+
+.sticky-notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Sticky note styles */
+.sticky-note {
+  width: 260px;
+  min-height: 220px;
+  padding: 16px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease-in-out;
+  word-break: break-word;
+}
+
+.sticky-note:hover {
+  transform: translateY(-4px);
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.sticky-note h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.app.dark .sticky-note h3 {
+  color: #fff;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #c0392b;
+}
+
+.delete-btn:hover {
+  color: #e74c3c;
+}
+
+/* Task list */
+.sticky-note ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 10px 0;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.sticky-note li {
+  background: #ffffffaa;
+  padding: 6px 8px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.app.dark .sticky-note li {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #eee;
+}
+
+/* Inputs and buttons in note */
+.sticky-note input[type="text"] {
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 6px;
+  width: 100%;
+}
+
+.app.dark .sticky-note input[type="text"] {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+.sticky-note button {
+  padding: 6px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+  margin-top: 4px;
+  transition: background-color 0.2s, filter 0.2s;
+  background-color: inherit;
+}
+
+.app.dark .sticky-note button {
+  color: #fff;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.app.dark .modal-content {
+  background-color: #2c2c2c;
+  color: #ffffff;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.app.dark .modal-content h3 {
+  color: #fff;
+}
+
+.modal-content p {
+  color: #555;
+  margin: 12px 0;
+}
+
+.app.dark .modal-content p {
+  color: #ccc;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.btn-confirm, .btn-cancel {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-confirm {
+  background-color: #27ae60;
+  color: #fff;
+}
+
+.btn-cancel {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.btn-confirm:hover {
+  background-color: #1e8449;
+}
+
+.btn-cancel:hover {
+  background-color: #c0392b;
+}
+
+/* Color picker swatches */
+.color-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+  justify-content: center;
+}
+
+.color-swatch {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);
+}
+
+.color-swatch.selected {
+  border-color: #333;
+}
+
+.app.dark .color-swatch.selected {
+  border-color: #fff;
+}
+
+/* Floating buttons */
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.add-card {
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: #fdcb6e;
+  color: #2d3436;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.add-card:hover {
+  background-color: #e17055;
+}
+
+.undo-button {
+  font-size: 20px;
+  background-color: #74b9ff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.undo-button:hover {
+  background-color: #0984e3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    box-shadow: none;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .sticky-notes {
+    justify-content: center;
+  }
+}
+
+/* Sticky Note Color Variants */
+.note-blue   { background-color: #a4b6dd; }
+.note-pink   { background-color: #d09292; }
+.note-purple { background-color: #c094cc; }
+.note-teal   { background-color: #a2d0c0; }
+.note-rose   { background-color: #c37892; }
+
+.app.dark .note-blue   { background-color: #5a6d91; }
+.app.dark .note-pink   { background-color: #8e5e5e; }
+.app.dark .note-purple { background-color: #715b77; }
+.app.dark .note-teal   { background-color: #4f766e; }
+.app.dark .note-rose   { background-color: #7f4b5a; }
+
+/* Background grid for dark mode */
+.dark .main-wall {
+  background-color: #1e1e1e;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+
+
+/* Sidebar Footer */
+.sidebar-footer {
+  margin-top: auto;
+  padding: 12px 0;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  color: black;
+}
+
+.app.dark .sidebar-footer {
+  background-color: #2c2c2c;
+  color: #fff;
+}
+
+.sidebar-footer ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
